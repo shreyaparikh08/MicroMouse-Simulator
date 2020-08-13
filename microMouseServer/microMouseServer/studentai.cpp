@@ -21,5 +21,51 @@ void microMouseServer::studentAI()
  * void foundFinish();
  * void printUI(const char *mesg);
 */
+//!(isWallLeft()==false&&isWallRight()==false&&isWallForward()==false)
+   /*
+    while(isWallRight()==false&&isWallForward()){
+
+        if(isWallLeft()==false){
+            turnLeft();
+         }
+
+        }else if(isWallRight()==false){
+            turnRight();
+        }
+
+        moveForward();   
+    }
+ */
+std::vector<int> moves;
+    int i = 0;
+
+    while(i<20){
+
+        if(isWallRight()==false){
+            turnRight();
+        }
+        else if(isWallLeft()==false){
+            turnLeft();
+        }
+
+        if(isWallForward() && isWallLeft() && isWallRight()){
+            while(isWallLeft()==true && isWallRight()==true){
+                turnLeft();
+            }
+        }
+
+        moveForward();
+
+        if(isWallLeft()==true && isWallRight()==false && isWallForward()==false){
+            foundFinish();
+            //break;
+        }
+        i++;
+
+    }
+
+
 
 }
+
+
